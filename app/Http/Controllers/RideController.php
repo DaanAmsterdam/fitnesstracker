@@ -16,7 +16,6 @@ class RideController extends Controller
     {
         $rides = Ride::all();
         //$rides = auth()->user()->rides;
-
         return view('rides.index', compact('rides'));
     }
 

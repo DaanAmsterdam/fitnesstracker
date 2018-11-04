@@ -1,21 +1,22 @@
 @extends('layouts.app') 
 @section('content')
-<div class="container mx-auto flex flex-col px-10 w-1/3 border border-green-lighter shadow-login mt-24">
+<div class="container mx-auto flex flex-col px-16 w-128 border border-green-lighter shadow-login mt-24">
     <div class="mb-8 mt-24">
         <span class="text-green text-4xl font-semibold tracking-tight">
-                Log in
+                Log In
             </span>
         <span class="text-green-lighter text-3xl font-light tracking-tight mx-2">
                 or
             </span>
-        <span class="">
-                <a class="text-green-lighter text-4xl font-light tracking-tight no-underline hover:text-green" href="#">Sign up</a>
+        <span>
+                <a class="text-green-lighter text-4xl font-light tracking-tight no-underline hover:text-green" href="{{ route('register') }}">Sign Up</a>
             </span>
     </div>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <div class="text-green-light text-xs mb-1">
-            E-mail address
+            E-mail Address
         </div>
         <div>
             <input id="email" type="email" name="email" value="{{ old('email') }}" class="border-b w-full text-green-light font-bold focus:outline-none focus:border-green"
@@ -28,13 +29,8 @@
             </span>@endif
         </div>
 
-        <div class="mb-1 flex justify-between items-baseline">
-            <span class="text-green-light text-xs">
-                Password
-            </span>
-            <span>
-                <a class="text-green-light text-xs no-underline hover:underline hover:text-green" href="{{ route('password.request') }}">Forgot your password?</a>
-            </span>
+        <div class="text-green-light text-xs mb-1">
+            Password
         </div>
         <div>
             <input id="password" type="password" name="password" class="border-b w-full text-green-light font-bold focus:outline-none focus:border-green"
@@ -48,8 +44,18 @@
                 </span> @endif
         </div>
 
+        <div class="flex justify-between mb-12">
+            <span>
+                <input class="" type="checkbox" name="remember" id="remember" {{ old( 'remember') ? 'checked' : '' }}>
+                <label class="text-green text-xs no-underline hover:underline" for="remember">
+                    Remember Me
+                </label>
+            </span>
+            <span><a class="text-green text-xs no-underline hover:underline" href="{{ route('password.request') }}">Forgot Your Password?</a></span>
+        </div>
+
         <div>
-            <button type="submit" class="py-3 w-full mb-10 bg-green text-lg text-white font-semibold uppercase focus:outline-none">sign in</button>
+            <button type="submit" class="py-3 w-full mb-16 bg-green text-lg text-white font-semibold uppercase focus:outline-none">log in</button>
         </div>
     </form>
 </div>
