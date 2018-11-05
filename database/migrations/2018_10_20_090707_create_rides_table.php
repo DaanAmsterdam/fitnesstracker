@@ -15,7 +15,7 @@ class CreateRidesTable extends Migration
     {
         Schema::create('rides', function (Blueprint $table) {
             $table->increments('id');
-            //$table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id');
             $table->string('title');
             $table->date('date');
             $table->string('distance');
@@ -26,6 +26,8 @@ class CreateRidesTable extends Migration
             $table->string('link_garmin')->nullable();
             $table->text('remarks')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

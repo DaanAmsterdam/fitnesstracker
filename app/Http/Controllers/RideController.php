@@ -14,8 +14,8 @@ class RideController extends Controller
 
     public function index()
     {
-        $rides = Ride::all();
-        //$rides = auth()->user()->rides;
+        //$rides = Ride::all();
+        $rides = auth()->user()->rides;
         return view('rides.index', compact('rides'));
     }
 
@@ -26,17 +26,21 @@ class RideController extends Controller
 
     public function store(Request $request)
     {
-        Ride::create(request()->validate([
-            'title'       => ['required', 'min:3'],
-            'date'        => ['required', 'date'],
-            'distance'    => 'required',
-            'duration'    => 'required',
-            'type'        => 'required',
-            'weather'     => 'nullable',
-            'link_strava' => 'nullable',
-            'link_garmin' => 'nullable',
-            'remarks'     => 'nullable'
-        ]));
+        $attributes = request()->validate([
+            'title'           => ['required', 'min:3'],
+            'date'            => ['required', 'date'],
+            'distance'        => 'required',
+            'duration'        => 'required',
+            'type'            => 'required',
+            'weather'         => 'nullable',
+            'link_strava'     => 'nullable',
+            'link_garmin'     => 'nullable',
+            'remarks'         => 'nullable'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+
+        Ride::create($attributes);
 
         return redirect('/rides');
     }
