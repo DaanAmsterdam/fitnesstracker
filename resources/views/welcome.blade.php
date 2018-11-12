@@ -8,7 +8,7 @@
 
     <title>Fitness Tracker</title>
 
-    <link href="{{ asset('tailwind/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
