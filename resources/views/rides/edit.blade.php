@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 @section('title', 'Rides') 
 @section('content')
 <div class="container">
@@ -64,7 +64,7 @@
                     <form method="POST" action="/rides/{{ $ride->id }}">
                         @method('delete') @csrf
                         <div>
-                            <button type="submit ">Delete ride</button>
+                            <button type="submit">Delete ride</button>
                         </div>
                     </form>
                 </div>
