@@ -11,6 +11,6 @@ class RidesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Ride::class, 20)->create();
+        factory(App\Ride::class, 400)->create();
     }
 }

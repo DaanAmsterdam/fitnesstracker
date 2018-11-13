@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Ride::class, function (Faker $faker) {
     return [
-        'user_id'        => $faker->numberBetween($min = 1, $max = 3),
+        'user_id'        => $faker->numberBetween($min = 1, $max = 10),
         'title'          => $faker->sentence($nbWords = 2, $variableNbWords = true),
         'date'           => $faker->date,
         'distance'       => $faker->numberBetween($min = 35, $max = 150) . ' km',

@@ -19,7 +19,7 @@
         <nav class="bg-white border-b border-green h-16 flex items-center">
             <div class="flex justify-between container mx-auto items-center">
                 <div class="text-grey-darkest text-2xl font-thin mx-4">
-                    <a href="{{ url('/') }}" class="no-underline text-grey-darkest hover:text-green">{{ config('app.name', 'Fitness Tracker') }}</a>
+                    <a href="{{ url('/dashboard') }}" class="no-underline text-grey-darkest hover:text-green">{{ config('app.name', 'Fitness Tracker') }}</a>
                 </div>
 
                 <div class="flex">
