@@ -15,7 +15,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Ride::class => RidePolicy::class,
+        Ride::class     => RidePolicy::class,
+        Practice::class => PracticePolicy::class,
     ];
 
     /**

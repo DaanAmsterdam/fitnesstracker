@@ -6,7 +6,7 @@ $factory->define(App\Ride::class, function (Faker $faker) {
     return [
         'user_id'        => $faker->numberBetween($min = 1, $max = 10),
         'title'          => $faker->sentence($nbWords = 2, $variableNbWords = true),
-        'date'           => $faker->date,
+        'date'           => $faker->date($format = 'Y-m-d', $max = 'now'),
         'distance'       => $faker->numberBetween($min = 35, $max = 150) . ' km',
         'duration'       => $faker->numberBetween($min = 60, $max = 150) . ' min',
         'type'           => $faker->word,

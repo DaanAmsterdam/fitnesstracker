@@ -1,5 +1,5 @@
 @extends('layouts.app') 
-@section('title', 'Create Ride') 
+@section('title', 'View your Ride') 
 @section('content')
 <div class="container mx-auto mt-12">
 
@@ -9,7 +9,7 @@
     </div>
 
     <div class="m-4 pb-4 border-b">
-        <div>Date: {{ $ride->date }}</div>
+        <div>Date: {{ $ride->date->format('d M Y') }}</div>
         <div>Distance: {{ $ride->distance }}</div>
         <div>Duration: {{ $ride->duration }}</div>
         <div>Type: {{ $ride->type }}</div>

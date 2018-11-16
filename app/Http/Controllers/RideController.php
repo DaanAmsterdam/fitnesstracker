@@ -25,12 +25,17 @@ class RideController extends Controller
 
     public function store(RideRequest $request)
     {
-        Ride::create(
-            ['user_id' => auth()->id()] +
-            request(['title', 'date', 'distance', 'duration', 'type', 'weather', 'link_strava', 'link_garmin', 'remarks'])
+        //Ride::create(
+        //['user_id' => auth()->id()] +
+
+        $ride = auth()->user()->rides()
+            ->create(
+                request(
+                    ['title', 'date', 'distance', 'duration', 'type', 'weather', 'link_strava', 'link_garmin', 'remarks']
+                )
         );
 
-        return redirect('/rides');
+        return redirect('/rides/' . $ride->id);
     }
 
     public function show(Ride $ride)
@@ -42,9 +47,9 @@ class RideController extends Controller
 
     public function edit(Ride $ride)
     {
-       $this->authorize('update', $ride);
+        $this->authorize('update', $ride);
 
-       return view('rides.edit', compact('ride'));
+        return view('rides.edit', compact('ride'));
     }
 
     public function update(RideRequest $request, Ride $ride)

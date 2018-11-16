@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Ride');
     }
+
+    public function practices()
+    {
+        return $this->hasMany(Practice::class);
+    }
 }

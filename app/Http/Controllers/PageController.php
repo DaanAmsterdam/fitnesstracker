@@ -21,6 +21,11 @@ class PageController extends Controller
             ->limit(5)
             ->get();
 
-        return view('dashboard', compact('rides'));
+        $practices = auth()->user()->practices()
+            ->orderBy('date', 'desc')
+            ->limit(5)
+            ->get();
+
+        return view('dashboard', compact('rides', 'practices'));
     }
 }
