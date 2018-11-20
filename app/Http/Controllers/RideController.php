@@ -14,8 +14,7 @@ class RideController extends Controller
 
     public function index()
     {
-        $rides = auth()->user()->rides;
-        return view('rides.index', compact('rides'));
+        return view('rides.index', ['rides' => auth()->user()->rides]);
     }
 
     public function create()

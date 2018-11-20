@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Practice extends Model
 {
+    use Taggable;
+
     protected $guarded = [];
     protected $dates = ['date'];
 
