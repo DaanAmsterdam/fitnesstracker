@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Policies\PracticePolicy;
+use App\Practice;
 use App\Ride;
 use App\Policies\RidePolicy;
 use Illuminate\Contracts\Auth\Access\Gate;

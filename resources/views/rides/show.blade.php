@@ -19,6 +19,14 @@
         <div>Remarks: {{ $ride->remarks }}</div>
     </div>
 
+    <div class="m-4 pb-4">
+        Tags:
+        @foreach ($ride->tags as $tag)
+            <span>{{ $tag->name }}</span>
+        @endforeach
+
+    </div>
+
     <div class="mx-4">Back to <a class="no-underline text-green" href="/rides/">my Rides</a></div>
 </div>
 @endsection

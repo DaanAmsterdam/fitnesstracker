@@ -66,6 +66,8 @@ class RideController extends Controller
     {
         $this->authorize('update', $ride);
 
+        $ride->tags()->delete();
+
         $ride->delete();
 
         return redirect('/rides');
